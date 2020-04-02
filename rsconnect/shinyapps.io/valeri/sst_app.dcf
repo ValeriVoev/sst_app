@@ -1,0 +1,10 @@
+name: sst_app
+title:
+username:
+account: valeri
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2042936
+bundleId: 2959588
+url: https://valeri.shinyapps.io/sst_app/
+when: 1585838795.40057
