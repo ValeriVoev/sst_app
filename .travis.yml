@@ -1,0 +1,15 @@
+dist: xenial
+language: r
+sudo: false
+r: 3.6.1
+
+# Include all necessary R packages here.
+r_packages:
+  - shiny
+	- shinydashboard
+	- xml2
+	- dplyr
+	- ggplot2
+
+script:
+  - R -f runApp.R
