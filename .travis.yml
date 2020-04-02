@@ -10,6 +10,7 @@ r_packages:
   - xml2
   - dplyr
   - ggplot2
+  - rsconnect
 
 script:
   - R -f runApp.R
