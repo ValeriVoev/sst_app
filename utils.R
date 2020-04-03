@@ -1,7 +1,7 @@
 webpage_url <- "https://www.sst.dk/da/corona/tal-og-overvaagning"
 webpage <- xml2::read_html(webpage_url)
 
-hosp <- rvest::html_table(webpage, header = TRUE)[[4]]
+hosp <- rvest::html_table(webpage, header = TRUE)[[5]]
 hosp <-hosp[-1,]
 hosp[2:dim(hosp)[2]] <- sapply(hosp[2:dim(hosp)[2]],as.numeric)
 
