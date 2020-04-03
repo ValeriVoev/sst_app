@@ -3,6 +3,9 @@ language: r
 sudo: false
 r: 3.6.1
 
+cache:
+  packages: true
+
 # Include all necessary R packages here.
 r_packages:
   - shiny
