@@ -6,6 +6,11 @@ r: 3.6.1
 cache:
   packages: true
 
+# blocklist
+branches:
+  except:
+  - dev
+
 # Include all necessary R packages here.
 r_packages:
   - shiny
