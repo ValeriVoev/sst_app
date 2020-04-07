@@ -8,8 +8,9 @@ dashboardPage(title= "Covid-19 related hospitalizations in Denmark",
 							dashboardBody(
 								tabItems(
 									tabItem(tabName = "values",
-													plotOutput("hosp_plot", height = "800px"),
-													plotOutput("intens_plot", height = "800px")
+													plotlyOutput("values", height = "800px")
+													#plotOutput("hosp_plot", height = "800px"),
+													#plotOutput("intens_plot", height = "800px")
 									),
 									tabItem(tabName = "change",
 													plotOutput("hosp_plot_change", height = "800px")
