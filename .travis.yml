@@ -4,6 +4,9 @@ r: 3.6.1
 
 cache: packages
 
+apt_packages:
+  - libxml2-dev
+
 # blocklist
 #branches:
 #  except:
