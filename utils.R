@@ -22,8 +22,9 @@ prepare_table <- function(table){
 	print("prepare_table_step3")
 	table <- table[seq(nrow(table), 1), ]
 	print("prepare_table_step4")
-	table <- table %>% 
-		mutate_if(is.numeric, list(growth = ~(. - dplyr::lag(.)), r_growth = ~(. - dplyr::lag(.))/dplyr::lag(.)  ) )
+	# table <- table %>% 
+	# 	mutate_if(is.numeric, list(growth = ~(. - dplyr::lag(.)), 
+	# 														 r_growth = ~(. - dplyr::lag(.))/dplyr::lag(.)  ) )
 	print("prepare_table_step5")
 	proper_dates <- seq(as.Date("2020-03-16"), as.Date("2020-03-16") + (nrow(table) - 1), by = "day")
 	table$Date <- proper_dates
