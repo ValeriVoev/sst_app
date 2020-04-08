@@ -20,7 +20,7 @@ prepare_table <- function(table){
 	colnames(table) <- gsub(" ", "_",  colnames(table))
 	colnames(table)[1] <- "Date"
 	print("prepare_table_step3")
-	table <- table %>% purrr::map_df(rev)
+	table <- table[seq(nrow(table), 1), ]
 	print("prepare_table_step4")
 	table <- table %>% 
 		mutate_if(is.numeric, list(growth = ~(. - dplyr::lag(.)), r_growth = ~(. - dplyr::lag(.))/dplyr::lag(.)  ) )
