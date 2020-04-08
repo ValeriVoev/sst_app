@@ -3,8 +3,7 @@ language: r
 sudo: false
 r: 3.6.1
 
-cache:
-  packages: true
+cache: packages
 
 # blocklist
 #branches:
