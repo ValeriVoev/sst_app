@@ -1,4 +1,4 @@
-dist: bionic
+#dist: bionic
 language: r
 sudo: false
 r: 3.6.1
