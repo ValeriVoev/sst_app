@@ -3,25 +3,32 @@ library(shinydashboard)
 library(xml2)
 library(dplyr)
 library(ggplot2)
+library(plotly)
+library(RColorBrewer)
 
 source('utils.R')
 
+mypalette<-brewer.pal(3,"Dark2")
+
 webpage_url <- "https://www.sst.dk/da/corona/tal-og-overvaagning"
 
-hosp <- get_hosp_table(web_url = webpage_url)
-hosp <-hosp[-1,]
-hosp[2:dim(hosp)[2]] <- sapply(hosp[2:dim(hosp)[2]],as.numeric)
+tables <- get_hosp_table(web_url = webpage_url)
 
-colnames(hosp) <- gsub(" ", "_",  colnames(hosp))
-colnames(hosp)[1] <- "Date"
+hosp <- prepare_table(tables$hosp)
+hosp_long <- elong_table(hosp)
 
-hosp <- hosp %>% purrr::map_df(rev)
+intens <- prepare_table(tables$intens)
+intens_long <- elong_table(intens)
 
-hosp <- hosp %>% 
-	mutate_if(is.numeric, list(growth = ~(. - lag(.)), r_growth = ~(. - lag(.))/lag(.)  ) )
+resp <- prepare_table(tables$resp)
+resp_long <- elong_table(resp)
 
-proper_dates <- seq(as.Date("2020-03-16"), as.Date("2020-03-16") + (nrow(hosp) - 1), by = "day")
-hosp$Date <- proper_dates
+joined <- left_join(hosp, intens, by = "Date", suffix = c("", "_intens")) %>% 
+	left_join(resp, by = "Date", suffix = c("_hosp", "_resp"))
 
-hosp_long <- hosp %>% 
-	tidyr::pivot_longer(cols = -Date)
+
+# Region plots --------------------------------------------------------------------------------
+
+regs <- grep("Region", colnames(tables$hosp), value = TRUE)
+reg_plots <- plotList(regs)
+
