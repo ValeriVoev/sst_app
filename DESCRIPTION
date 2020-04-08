@@ -1,2 +1,17 @@
 Package: sst_app
 Type: Shiny
+
+Imports:
+    shiny
+    shinydashboard
+    xml2
+    httr
+    rvest
+    stringi
+    stringr
+    tidyr
+    dplyr
+    ggplot2
+    rsconnect
+    plotly
+    RColorBrewer

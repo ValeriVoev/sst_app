@@ -12,20 +12,20 @@ cache:
 #  - dev
 
 # Include all necessary R packages here.
-r_packages:
-  - shiny
-  - shinydashboard
-  - xml2
-  - httr
-  - rvest
-  - stringi
-  - stringr
-  - tidyr
-  - dplyr
-  - ggplot2
-  - rsconnect
-  - plotly
-  - RColorBrewer
+#r_packages:
+#  - shiny
+#  - shinydashboard
+#  - xml2
+#  - httr
+#  - rvest
+#  - stringi
+#  - stringr
+#  - tidyr
+#  - dplyr
+#  - ggplot2
+#  - rsconnect
+#  - plotly
+#  - RColorBrewer
 
 script:
   - R -f runApp.R
