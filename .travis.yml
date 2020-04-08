@@ -1,6 +1,6 @@
 #dist: bionic
 language: r
-r: 3.6.1
+sudo: false
 
 cache: packages
 
