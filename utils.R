@@ -13,13 +13,18 @@ get_hosp_table <- function(web_url){
 prepare_table <- function(table){
 	
 	table <- lapply(table, function(x) gsub("✱", "", x)) %>% as_tibble(.name_repair = "minimal")
+	print("prepare_table_step1")
 	table <- table[-1,]
 	table[2:dim(table)[2]] <- sapply(table[2:dim(table)[2]],as.numeric)
+	print("prepare_table_step2")
 	colnames(table) <- gsub(" ", "_",  colnames(table))
 	colnames(table)[1] <- "Date"
+	print("prepare_table_step3")
 	table <- table %>% purrr::map_df(rev)
+	print("prepare_table_step4")
 	table <- table %>% 
-		mutate_if(is.numeric, list(growth = ~(. - lag(.)), r_growth = ~(. - lag(.))/lag(.)  ) )
+		mutate_if(is.numeric, list(growth = ~(. - dplyr::lag(.)), r_growth = ~(. - dplyr::lag(.))/dplyr::lag(.)  ) )
+	print("prepare_table_step5")
 	proper_dates <- seq(as.Date("2020-03-16"), as.Date("2020-03-16") + (nrow(table) - 1), by = "day")
 	table$Date <- proper_dates
 	
