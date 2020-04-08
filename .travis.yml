@@ -24,6 +24,8 @@ r_packages:
   - dplyr
   - ggplot2
   - rsconnect
+  - plotly
+  - RColorBrewer
 
 script:
   - R -f runApp.R
