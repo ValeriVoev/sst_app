@@ -7,9 +7,9 @@ cache:
   packages: true
 
 # blocklist
-branches:
-  except:
-  - dev
+#branches:
+#  except:
+#  - dev
 
 # Include all necessary R packages here.
 r_packages:
