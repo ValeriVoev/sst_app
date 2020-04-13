@@ -1,2 +1,6 @@
 Package: sst_app
 Type: Shiny
+
+Imports:
+    renv,
+    shiny
