@@ -31,11 +31,8 @@ apt_packages:
 #  - plotly
 #  - RColorBrewer
 
-r_packages:
-  - shiny
-  - renv
-
 install:
+  - Rscript -e 'if (system.file(package="renv") == "") install.packages("renv")'
   - Rscript -e "renv::restore()"
 
 script:
