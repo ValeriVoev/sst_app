@@ -31,6 +31,9 @@ apt_packages:
 #  - plotly
 #  - RColorBrewer
 
+r_packages:
+  - renv
+
 install:
   - Rscript -e "renv::restore()"
 
