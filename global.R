@@ -6,6 +6,8 @@ library(ggplot2)
 library(plotly)
 library(RColorBrewer)
 
+options(shiny.fullstacktrace = TRUE)
+
 source('utils.R')
 
 mypalette<-brewer.pal(3,"Dark2")

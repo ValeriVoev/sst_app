@@ -75,12 +75,10 @@ shinyServer(function(input, output, session) {
 	
 	# Change tables -------------------------------------------------------------------------------
 	
-	
-	
 	output$hosp_plot_change <- renderPlot({
-		hosp_long %>% 
+		hosp_long %>%
 			filter(grepl("r_growth", name), !is.na(value)) %>%
-			mutate(name = gsub("_r_growth", "", name)) %>% 
+			mutate(name = gsub("_r_growth", "", name)) %>%
 			mutate(name = gsub("_", " ", name)) %>%
 			ggplot(aes(x=Date, y=value, fill = name)) +
 			geom_col(show.legend = FALSE) +

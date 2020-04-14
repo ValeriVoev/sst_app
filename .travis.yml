@@ -1,31 +1,39 @@
-dist: xenial
+#dist: bionic
 language: r
 sudo: false
-r: 3.6.1
 
 cache:
-  packages: true
+  directories:
+  - $HOME/.local/share/renv
+  - $TRAVIS_BUILD_DIR/renv/library
+
+apt_packages:
+  - libxml2-dev
 
 # blocklist
-branches:
-  except:
-  - dev
+#branches:
+#  except:
+#  - dev
 
-# Include all necessary R packages here.
-r_packages:
-  - shiny
-  - shinydashboard
-  - xml2
-  - httr
-  - rvest
-  - stringi
-  - stringr
-  - tidyr
-  - dplyr
-  - ggplot2
-  - rsconnect
-  - plotly
-  - RColorBrewer
+## Include all necessary R packages here.
+#r_packages:
+#  - shiny
+#  - shinydashboard
+#  - xml2
+#  - httr
+#  - rvest
+#  - stringi
+#  - stringr
+#  - tidyr
+#  - dplyr
+#  - ggplot2
+#  - rsconnect
+#  - plotly
+#  - RColorBrewer
+
+install:
+  - Rscript -e 'if (system.file(package="renv") == "") install.packages("renv")'
+  - Rscript -e "renv::restore()"
 
 script:
   - R -f runApp.R
