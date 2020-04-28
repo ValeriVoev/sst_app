@@ -1,5 +1,6 @@
 #dist: bionic
 language: r
+r: 3.6.2
 sudo: false
 
 cache:
